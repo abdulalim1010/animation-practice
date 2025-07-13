@@ -1,0 +1,64 @@
+body {
+  font-family: sans-serif;
+  padding: 40px;
+}
+.btn {
+  background: #4ade80;
+  padding: 10px 20px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+ transition: all 0.5s ease;
+ cursor: pointer;
+}
+
+.btn:hover {
+  background: greenyellow;
+  transform: scale(1.5);
+}
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 5s reverse;
+
+  margin-top: 30px;
+  background: red;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.my-btn{
+  background:red;
+  border-radius:12px;
+  padding:12px 20px;
+  color:black;
+  font-weight:bold;
+  transition: all 0.3s ease;
+  cursor:pointer;
+  margin-top: 30px;
+  
+
+}
+.my-btn:hover{
+  background:green;
+  transform:scale(1.5)
+}
+.fade-inner{
+  opacity:0;
+  animation:fedIn 3s forwards;
+  margin-top:10px;
+  background:blue;
+  padding:12px 12px;
+  border-radius:10px;
+  box-shadow:rgba(0,0,0,.3) 0px 6px 20px;
+}
+@keyframes fedIn{
+  to{
+    opacity:1
+  }
+}
