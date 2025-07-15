@@ -1,33 +1,111 @@
+.pulser{
+  width: 30px;
+  height: 40px;
+border-radius: 50%;
+background: red;
+position: relative;
+}
+.pulser::after {
+  animation: pulse 1000ms cubic-bezier(0.9, 0.7, 0.5, 0.9) infinite;
+}
 
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.4;
+  }
+}
+
+.pulser::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: blueviolet;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+/* Decorative styles */
 body {
-  font-family: sans-serif;
-  padding: 40px;
-  background: #f3f4f6;
+  display: grid;
+  place-items: center;
+}
+.blob {
+  width: 200px;
+  height: 200px;
+
+  background: linear-gradient(45deg, #7f00ff, #e100ff);
+  border-radius: 50%;
+  animation: morph 8s ease-in-out infinite;
+  filter: blur(30px);
 }
 
-/* Common style for all problems */
-div[class^="problem"] {
-  opacity: 0;
-  border: 2px solid #00008b;
-  padding: 20px;
-  margin: 30px 0;
+@keyframes morph {
+  0%, 100% {
+    border-radius: 42% 58% 26% 74% / 42% 35% 65% 58%;
+  }
+  50% {
+    border-radius: 58% 42% 74% 26% / 65% 58% 42% 35%;
+  }
+}
+
+
+.hover-btn {
+  position: relative;
+  padding: 12px 24px;
+  border: 2px solid #7f00ff;
+  background: transparent;
+  color: #7f00ff;
+  font-weight: bold;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 2s forwards;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.3s ease;
 }
 
-/* Individual color and delay */
-.problem1 {
-  background-color: red;
-  animation-delay: 0s;
+.hover-btn span {
+  position: relative;
+  z-index: 2;
 }
 
-.problem2 {
-  background-color: green;
-  animation-delay: 3s;
+.hover-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #7f00ff;
+  transition: width 0.3s ease;
+  z-index: 1;
 }
 
-.problem3 {
-  background-color: yellow;
-  animation-delay: 4s;
+.hover-btn:hover::before {
+  width: 100%;
 }
+
+.hover-btn:hover {
+  color: white;
+}
+.hover-box {
+  width: 120px;
+  height: 120px;
+  background: #3498db;
+  border-radius: 10px;
+  margin: 50px auto;
+  transition: transform 0.5s ease;
+}
+
+.hover-box:hover {
+  transform: scale(1.4) rotate(3606deg);
+  background: red;
+  border: 12px solid green;
+}
+
+
